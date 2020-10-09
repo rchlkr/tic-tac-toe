@@ -1,0 +1,228 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-size: 16px;
+}
+
+.container {
+	display: grid;
+	height: 100vh;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+	grid-template-areas:
+		"header   header  gameboard gameboard gameboard gameboard"
+		"players  players gameboard gameboard gameboard gameboard"
+		"players  players gameboard gameboard gameboard gameboard"
+		"players  players gameboard gameboard gameboard gameboard"
+		"footer   footer  gameboard gameboard gameboard gameboard";
+	background-color: hsla(168, 100%, 30%, 100%);
+	box-shadow: 2px 2px 4px hsla(0, 0, 0, 0.1);
+}
+
+.header {
+	font-family: "Grandstander";
+	font-weight: 500;
+	font-size: 3rem;
+	padding-top: 5rem;
+	grid-area: header;
+	align-self: center;
+	justify-self: center;
+	color: #daebf3;
+}
+
+.modalheader {
+	font-family: "Grandstander";
+}
+
+.players {
+	font-family: "Roboto";
+	grid-area: players;
+	display: grid;
+	grid-template-columns: repeat(3, 2fr);
+	grid-template-rows: repeat(3, 2fr);
+	grid-template-areas:
+		"edit playerone playeronescore"
+		"edit playertwo playertwoscore";
+	align-self: center;
+	justify-self: center;
+	height: 5rem;
+	color: #daebf3;
+}
+
+#editplayers {
+	grid-area: edit;
+	align-self: center;
+	font-size: 3rem;
+	text-align: center;
+	border: none;
+	background-color: transparent;
+	color: #daebf3;
+	margin-right: 2rem;
+	transform: rotate(-80deg);
+	transition: 0.5s ease-in-out;
+}
+
+#playerone {
+	grid-area: playerone;
+	text-align: center;
+}
+
+#playeronescore {
+	grid-area: playeronescore;
+	text-align: center;
+}
+
+#playertwo {
+	grid-area: playertwo;
+	text-align: center;
+}
+
+#playertwoscore {
+	grid-area: playertwoscore;
+	text-align: center;
+}
+
+#editplayers:hover {
+	cursor: pointer;
+	transform: rotate(-32deg);
+}
+
+.scorearea {
+	font-family: "Roboto";
+	padding: 0.2rem;
+}
+
+.playeronewin,
+.playertwowin {
+	animation: pulse 1s;
+}
+
+@keyframes pulse {
+	50% {
+		transform: scale(1.5);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+
+.modal {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	visibility: hidden;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modalcontent {
+	position: absolute;
+	width: 20rem;
+	height: 17rem;
+	margin-top: 3rem;
+	margin-left: auto;
+	margin-right: auto;
+	left: 0;
+	right: 0;
+	background-color: #daebf3;
+	border: none;
+	border-radius: 0.5rem;
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+	font-family: "Roboto";
+}
+
+#xsymbol,
+#osymbol {
+	font-family: 'Montserrat';
+	padding-right: 0.4rem;
+}
+
+.modalheader,
+.modalcontent,
+#submit {
+	text-align: center;
+}
+
+.modalheader {
+	margin-top: 2rem;
+	font-size: 2rem;
+}
+
+#playeronename {
+	margin-top: 3rem;
+	border: none;
+	box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.25);
+	height: 1.5rem;
+	border-radius: 0.2rem;
+}
+
+#playertwoname {
+margin-top: 1rem;
+border: none;
+box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.25);
+height: 1.5rem;
+border-radius: 0.2rem;
+}
+
+input::placeholder,
+input:placeholder-shown,
+input {
+  text-indent: 0.5rem;
+}
+
+#submit {
+	border: none;
+	background-color: transparent;
+	text-transform: uppercase;
+	font-family: 'Roboto';
+	margin-top: 3rem;
+}
+
+.closebutton {
+	float: right;
+	padding-right: 0.5rem;
+	font-size: 1.5rem;
+}
+
+.closebutton:hover {
+	cursor: pointer;
+}
+
+.showmodal {
+	opacity: 1;
+	visibility: visible;
+}
+
+#gameboard {
+	grid-area: gameboard;
+	align-self: center;
+	justify-self: center;
+}
+
+#restart {
+	grid-area: players;
+	align-self: end;
+	justify-self: center;
+	border: none;
+	background-color: transparent;
+	text-transform: uppercase;
+	color: #daebf3;
+}
+
+#restart:hover {
+	cursor: pointer;
+}
+
+.box {
+	height: 12rem;
+	width: 12rem;
+	background-color:	hsla(199, 51%, 90%, 45%);
+	color: #daebf3;
+	font-size: 5rem;
+	text-align: center;
+	border-radius: 0.5rem;
+	box-shadow: 2px 2px 4px hsla(0, 0, 0, 0.1);
+	font-family: 'Montserrat';
+}
