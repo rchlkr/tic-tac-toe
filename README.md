@@ -1,5 +1,5 @@
 # a browser tic-tac-toe game
-**using modular JS format.**
+### using modular JS format.
 
 entire gameplay is housed within an immediately invoked function expression,\
 only returning variables that are needed to update the player objects and scoreboard.\
