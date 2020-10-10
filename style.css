@@ -199,6 +199,7 @@ input::placeholder,
 input:placeholder-shown,
 input {
 	text-indent: 0.5rem;
+	font-family: "Roboto";
 }
 
 #submit,
