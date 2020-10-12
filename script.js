@@ -23,6 +23,7 @@ const displayScore = (() => {
 
 const gameBoard = (() => {
 	let board = ["", "", "", "", "", "", "", "", ""];
+	let boxesPlayed = [];
 
 	let editPlayers = document.getElementById("editplayers");
 	let modal = document.querySelector(".modal");
@@ -87,16 +88,26 @@ const gameBoard = (() => {
 			box.textContent = "";
 		});
 		box.textContent = "";
+		boxesPlayed = [];
 	};
 
 	const playGame = (box) => {
-		board.splice(box.id, 1, player.symbol);
-		box.textContent = player.symbol;
+		if (boxesPlayed.includes(box.id)) {
+			!changeTurn();
+		} else {
+			board.splice(box.id, 1, player.symbol);
+			box.textContent = player.symbol;
+			boxesPlayed.push(box.id);
+		}
 		if (checkWinner()) {
 			player.addWin();
 			updateScore();
-			if ((document.getElementById("playerone").classList.contains("playeronewin")) ||
-			(document.getElementById("playertwo").classList.contains("playertwowin"))) {
+			if (
+				document
+					.getElementById("playerone")
+					.classList.contains("playeronewin") ||
+				document.getElementById("playertwo").classList.contains("playertwowin")
+			) {
 				document.getElementById("playerone").classList.remove("playeronewin");
 				document.getElementById("playertwo").classList.remove("playertwowin");
 			}
@@ -105,6 +116,8 @@ const gameBoard = (() => {
 			} else if (player === playerTwo) {
 				document.getElementById("playertwo").classList.add("playertwowin");
 			}
+			setTimeout(newRound, 1000);
+		} else if (boxesPlayed.length === 9) {
 			setTimeout(newRound, 1000);
 		}
 		changeTurn();
@@ -149,6 +162,7 @@ const gameBoard = (() => {
 		displayScore.playerOneScore.textContent = "0";
 		displayScore.playerTwoScore.textContent = "0";
 		player = playerOne;
+		boxesPlayed = [];
 	});
 
 	return {
@@ -162,15 +176,10 @@ const gameBoard = (() => {
 	};
 })();
 
-
 /*
-
-if box has already been played, don't allow it to be played again
 
 winner animation works for alternating wins, 
 but if player wins twice in a row it doesn't animate the second win
-
-restart game with no score changes if a tie
 
 when you click on edit players when custom names are already input, 
 make the input fields say player 1/player 2 rather than the custom names
