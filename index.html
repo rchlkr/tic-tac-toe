@@ -1,51 +1,65 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>tic-tac-toe</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="style.css" type="text/css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Grandstander:wght@400;500&family=Roboto&display&family=Montserrat:wght@700&display=swap" rel="stylesheet"> 
-  </head>
-  <body>
-    
-    <div class="container">
-    <div class="modal">
-      <div class="modalcontent">
-        <span class="closebutton">&times;</span>
-        <header class="modalheader">edit players</header>
-        <span id="xsymbol">x</span><input type="text" id="playeronename" name="playeronename" placeholder="Player 1"><br>
-        <span id="osymbol">o</span><input type="text" id="playertwoname" name="playertwoname" placeholder="Player 2"><br>
-        <input id="submit" type="button" value="done">
-      </div>
-    </div>
-      <header class="header">tic-tac-toe</header>
-      <section class="players">
-        <button id="editplayers">&#9998;</button>
-        <span class="scorearea" id="playerone">Player 1</span>
-        <span class="scorearea" id="playeronescore">0</span><br>
-        <span class="scorearea" id="playertwo">Player 2</span>
-        <span class="scorearea" id="playertwoscore">0</span>
-      </section>
-      <table id="gameboard">
-          <tr>
-          <td id="0" class="box"></td>
-          <td id="1" class="box"></td>
-          <td id="2" class="box"></td>
-        </tr>
-        <tr>
-          <td id="3" class="box"></td>
-          <td id="4" class="box"></td>
-          <td id="5" class="box"></td>
-        </tr>
-        <tr>
-          <td id="6" class="box"></td>
-          <td id="7" class="box"></td>
-          <td id="8" class="box"></td>
-        </tr>
-      </table>
-      <button id="restart" class="button">restart</button>
-    </div>
-  </body>
-  <script src="script.js" type="text/javascript"></script>
+	<head>
+		<title>tic-tac-toe</title>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link href="style.css" type="text/css" rel="stylesheet" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Grandstander:wght@400;500&family=Roboto&display&family=Montserrat:wght@700&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
+	<body>
+		<div class="container">
+			<div class="modal">
+				<div class="modalcontent">
+					<span class="closebutton">&times;</span>
+					<header class="modalheader">edit players</header>
+					<span id="xsymbol">x</span
+					><input
+						type="text"
+						id="playeronename"
+						name="playeronename"
+						placeholder="Player 1"
+					/><br />
+					<span id="osymbol">o</span
+					><input
+						type="text"
+						id="playertwoname"
+						name="playertwoname"
+						placeholder="Player 2"
+					/><br />
+					<input id="submit" type="button" value="done" />
+				</div>
+			</div>
+			<header class="header">tic-tac-toe</header>
+			<section class="players">
+				<button id="editplayers">&#9998;</button>
+				<span class="scorearea" id="playerone">Player 1</span>
+				<span class="scorearea" id="playeronescore">0</span><br />
+				<span class="scorearea" id="playertwo">Player 2</span>
+				<span class="scorearea" id="playertwoscore">0</span>
+			</section>
+			<table id="gameboard">
+				<tr>
+					<td id="0" class="box"></td>
+					<td id="1" class="box"></td>
+					<td id="2" class="box"></td>
+				</tr>
+				<tr>
+					<td id="3" class="box"></td>
+					<td id="4" class="box"></td>
+					<td id="5" class="box"></td>
+				</tr>
+				<tr>
+					<td id="6" class="box"></td>
+					<td id="7" class="box"></td>
+					<td id="8" class="box"></td>
+				</tr>
+			</table>
+			<button id="restart" class="button">restart</button>
+		</div>
+	</body>
+	<script src="script.js" type="text/javascript"></script>
 </html>
