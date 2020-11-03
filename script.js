@@ -96,7 +96,6 @@ const gameBoard = (() => {
 		if (boxesPlayed.includes(box.id)) {
 			!changeTurn();
 		} else {
-			console.log(box.id + " | " + player.symbol);
 			board.splice(box.id, 1, player.symbol);
 			box.textContent = player.symbol;
 			boxesPlayed.push(box.id);
