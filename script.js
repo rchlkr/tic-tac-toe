@@ -32,6 +32,7 @@ const gameBoard = (() => {
 
 	playerOne = player("Player 1", "x");
 	playerTwo = player("Player 2", "o");
+	player = playerOne;
 
 	function changePlayerNames() {
 		let playerOneName = document.getElementById("playeronename").value;
@@ -95,6 +96,7 @@ const gameBoard = (() => {
 		if (boxesPlayed.includes(box.id)) {
 			!changeTurn();
 		} else {
+			console.log(box.id + " | " + player.symbol);
 			board.splice(box.id, 1, player.symbol);
 			box.textContent = player.symbol;
 			boxesPlayed.push(box.id);
